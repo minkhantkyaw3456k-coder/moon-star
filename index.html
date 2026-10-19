@@ -1,0 +1,197 @@
+[19-Oct-26 8:20 PM] ထက်ကို: <!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>အထူးလက်ဆောင်လေး 🎁</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffe0ec, #e5dcff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 12px;
+      color: #57354f;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 27px;
+      color: #c04482;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      margin-bottom: 25px;
+      color: #815e7c;
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .character {
+      border: 3px solid white;
+      border-radius: 20px;
+      padding: 10px;
+      background: #ffffffd9;
+      box-shadow: 0 8px 22px #a76c9a30;
+      cursor: pointer;
+      transition: transform 0.25s;
+      color: #773b68;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .character:hover {
+      transform: translateY(-5px);
+    }
+
+    .character img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 13px;
+      display: block;
+      margin-bottom: 12px;
+      background: #f8dce9;
+    }
+
+    .character p {
+      margin: 8px 0;
+    }
+
+    #result {
+      display: none;
+      background: #ffffffed;
+      border-radius: 24px;
+      padding: 25px 15px;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px #a76c9a30;
+      animation: appear 0.5s ease;
+    }
+
+    #result h2 {
+      color: #c04482;
+    }
+
+    #gift {
+      font-size: 76px;
+      margin: 20px 0;
+      animation: bounce 0.8s infinite alternate;
+    }
+
+    #giftMessage {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .back {
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      background: #d84e95;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .rain {
+      position: fixed;
+      top: -50px;
+      z-index: 10;
+      pointer-events: none;
+      animation: fall 3s linear forwards;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0) rotate(-5deg); }
+      to { transform: translateY(-12px) rotate(5deg); }
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(540deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <h1>💗 ကိုယ်ကြိုက်တာ ရွေးပါ 💗</h1>
+    <p class="subtitle">ဘယ်သူ့ကို ရွေးချင်လဲ? 🎁</p>
+
+    <div class="choices" id="choices">
+
+      <!-- အောင်ဇဗ္ဗူ၏ ဓာတ်ပုံ -->
+      <button class="character" onclick="choose('flowers')">
+        <img
+          src="aung.jpg"
+          alt="အောင်ဇဗ္ဗူ၏ ဓာတ်ပုံ"
+        >
+        <p>🌸 အောင်ဇဗ္ဗူ 🌸</p>
+      </button>
+
+      <!-- စမ်းရေမိုး၏ ဓာတ်ပုံ -->
+      <button class="character" onclick="choose('money')">
+        <img
+          src="san.jpg"
+          alt="စမ်းရေမိုး၏ ဓာတ်ပုံ"
+        >
+        <p>💵 စမ်းရေမိုး 💵</p>
+      </button>
+
+    </div>
+
+    <section id="result">
+      <h2 id="resultTitle"></h2>
+      <div id="gift"></div>
+      <p id="giftMessage"></p>
+
+      <button class="back" onclick="goBack()">
+        ↩️ ပြန်ရွေးမယ်
+      </button>
+    </section>
+
+  </main>
+
+  <script>
+    function choose(type) {
+      document.getElementById("choices").style.display = "none";
+      document.getElementById("result").style.display = "block";
+
+      const title = document.getElementById("resultTitle");
+      const gift = document.getElementById("gift");
+      const message = document.getElementById("giftMessage");
+[19-Oct-26 8:24 PM] ထက်ကို: index.html
